@@ -6,7 +6,7 @@ class WordCountMapperReducer < Hash
     mapped.flatten!
 
     mapped.uniq.each do |k|
-      self[k] = mapped.reduce(0) { |sum, w| w == k ? sum + 1 : sum }
+      self[k] = mapped.count(k)
     end
   end
 end
